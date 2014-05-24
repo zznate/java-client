@@ -2,7 +2,7 @@
 title: Scassandra Java Client
 email: christopher.batey@gmail.com
 description: "Scassandra Java Client" 
-baseurl: "java-client/"
+baseurl: "/java-client"
 url: "http://scassandra.org/java-client"
 
 # Build settings
