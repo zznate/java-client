@@ -38,6 +38,41 @@ If you have dependency clashes with Guava, Apache Http Client etc try the standa
 </dependency>
 ~~~
 
+There are four important classes you'll deal with from Java:
+
+* ScassandraFactory - used to create instances of Scassandra
+* Scassandra - interface for starting/stopping Scassandra and getting hold of a PrimingClient and an ActivityClient
+* PrimingClient - sends priming requests to Scassandra RESTful admin interface
+* ActivityClient - retrieves all the recorded queries and prepared statements from the Scassandra RESTful admin interface
+
+The PrimingClient and ActivityClient have been created to ease integration for Java developers. Otherwise you would need to construct JSON and send it over HTTP to Scassandra.
+
+You can start a Scassandra instance per unit test and clear all primes and recorded activity between tests.
+
+~~~java
+private static PrimingClient primingClient;
+private static ActivityClient activityClient;
+private static Scassandra scassandra;
+
+
+@BeforeClass
+public static void startScassandraServer() throws Exception {
+   scassandra = ScassandraFactory.createServer();
+   scassandra.start();
+   primingClient = scassandra.primingClient();
+   activityClient = scassandra.activityClient();
+}
+~~~
+
+You can also add a AfterClass to close Scassandra down:
+
+~~~java
+ @AfterClass
+ public static void shutdown() {
+     scassandra.stop();
+ }
+~~~
+
 
 ### Example project
 
@@ -48,3 +83,4 @@ To see how to use Scassandra in your Java unit and integration tests see the fol
 And particularly the ExampleDaoTest:
 
 [Example JUnit test](https://github.com/chbatey/scassandra-example-java/blob/master/src/test/java/com/batey/examples/scassandra/PersonDaoTest.java)
+
