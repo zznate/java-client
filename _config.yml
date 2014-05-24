@@ -6,5 +6,5 @@ baseurl: "/java-client"
 url: "http://scassandra.org/java-client"
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 permalink: pretty
