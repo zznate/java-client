@@ -1,0 +1,10 @@
+# Site settings
+title: Scassandra Java Client
+email: christopher.batey@gmail.com
+description: "Scassandra Java Client" 
+baseurl: ""
+url: "http://scassandra.org/java-client"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
