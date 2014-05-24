@@ -1,7 +1,7 @@
 # Site settings
 title: Scassandra Java Client
 email: christopher.batey@gmail.com
-description: "Scassandra Java Client" 
+description: "testing Cassandra applications from Java"
 baseurl: "/java-client"
 url: "http://scassandra.org/java-client"
 
