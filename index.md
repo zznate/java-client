@@ -14,6 +14,7 @@ testCompile 'org.scassandra:java-client:0.1'
 }
 ~~~
 
+
 ### Maven:
 
 ~~~ xml
@@ -24,6 +25,7 @@ testCompile 'org.scassandra:java-client:0.1'
   <scope>test</scope>
 </dependency>
 ~~~
+
 If you have dependency clashes with Guava, Apache Http Client etc try the standalone version:
 
 ~~~ xml
@@ -35,6 +37,7 @@ If you have dependency clashes with Guava, Apache Http Client etc try the standa
   <scope>test</scope>
 </dependency>
 ~~~
+
 
 ### Example project
 
