@@ -12,6 +12,15 @@ type information. Drivers use this information to validate your execution of the
 Cassandra. So if you do not prime before your application prepares the statement Scassandra can only guess what the types are,
  and it defaults them all to varchar.
 
+You build priming requests with the PrimingRequestBuilder. The builder takes the following:
+
+* **Query** - The only mandatory property e.g "select * from person where name = ?"
+* **Consistency** - Defaults to all consistencies. Can override to ONE, TWO, LOCAL_QUORUM etc
+* **Result** - Defaults to Success. Other values are Read timeout exception, Write timeout exception and Unavailable exception
+* **ColumnTypes** - All columns default to Varchar. You'll need to override this.
+* **VariableTypes** - This is the type of each of the? in the prepared statement. All variable types default to Varchar. You'll need to override this.
+
+
 #### Priming variable types, without any rows
 
 This primes a prepared statement with two variables, where the first is a varchar and the second is an int. You specify
