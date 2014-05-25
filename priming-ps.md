@@ -1,5 +1,5 @@
 ---
 layout: default
 ---
-## Priming Queries
+## Priming Prepared Statements
 

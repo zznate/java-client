@@ -4,7 +4,24 @@ layout: default
 
 ## Overview
 
-The Scassandra Java Client is in Maven central. You can add it as a depdency:
+So far we have tested Scassandra with the following drivers:
+
+* Datastax Java Driver 1
+* Datastax Java Driver 2
+
+The next Driver we intent to test with is:
+
+* Astyanax
+
+
+***Why does the driver matter?***  Because Scassandra is pretending to be Cassandra and the driver what we need to fool!
+Each driver does different queries on start up and expects slightly different responses. Fortunately the Datstax
+Java Drivers don't require anything to be in the system keyspace, if there is nothing there it just carries on. However
+the Python Datastax Driver blows up if no rows come back from its query on system.local.
+
+### Getting started
+
+The Scassandra Java Client is in Maven central. You can add it as a dependency:
 
 ### Gradle:
 
@@ -40,10 +57,10 @@ If you have dependency clashes with Guava, Apache Http Client etc try the standa
 
 There are four important classes you'll deal with from Java:
 
-* ScassandraFactory - used to create instances of Scassandra
-* Scassandra - interface for starting/stopping Scassandra and getting hold of a PrimingClient and an ActivityClient
-* PrimingClient - sends priming requests to Scassandra RESTful admin interface
-* ActivityClient - retrieves all the recorded queries and prepared statements from the Scassandra RESTful admin interface
+* **ScassandraFactory** - used to create instances of Scassandra
+* **Scassandra** - interface for starting/stopping Scassandra and getting hold of a PrimingClient and an ActivityClient
+* **PrimingClient** - sends priming requests to Scassandra RESTful admin interface
+* **ActivityClient** - retrieves all the recorded queries and prepared statements from the Scassandra RESTful admin interface
 
 The PrimingClient and ActivityClient have been created to ease integration for Java developers. Otherwise you would need to construct JSON and send it over HTTP to Scassandra.
 
