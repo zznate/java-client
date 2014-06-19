@@ -15,7 +15,7 @@ number of times.
 List<Query> queries = activityClient.retrieveQueries();
 
 // Where each Query has:
-.geQuery()
+.getQuery()
 .getConsistency()
 ```
 
