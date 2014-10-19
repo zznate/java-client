@@ -12,6 +12,7 @@ So far we have tested Scassandra with the following drivers:
 The next Driver we intent to test with is:
 
 * Astyanax
+* Datastax Java Driver 2.1 (this won't work)
 
 
 ***Why does the driver matter?***  Because Scassandra is pretending to be Cassandra and the driver what we need to fool!
@@ -27,7 +28,7 @@ The Scassandra Java Client is in Maven central. You can add it as a dependency:
 
 ~~~ groovy
 dependencies {
-testCompile 'org.scassandra:java-client:0.2.1'
+testCompile 'org.scassandra:java-client:0.3.0'
 }
 ~~~
 
@@ -38,7 +39,7 @@ testCompile 'org.scassandra:java-client:0.2.1'
 <dependency>
   <groupId>org.scassandra</groupId>
   <artifactId>java-client</artifactId>
-  <version>0.2.1</version>
+  <version>0.3.0</version>
   <scope>test</scope>
 </dependency>
 ~~~
@@ -49,7 +50,7 @@ If you have dependency clashes with Guava, Apache Http Client etc try the standa
 <dependency>
   <groupId>org.scassandra</groupId>
   <artifactId>java-client</artifactId>
-  <version>0.2.1</version>
+  <version>0.3.0</version>
   <classifier>standalone</classifier>
   <scope>test</scope>
 </dependency>
