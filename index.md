@@ -11,8 +11,9 @@ So far we have tested Scassandra with the following drivers:
 
 The next Driver we intent to test with is:
 
+* Datastax Java Driver 2.1 (this won't work - next release)
 * Astyanax
-* Datastax Java Driver 2.1 (this won't work)
+
 
 
 ***Why does the driver matter?***  Because Scassandra is pretending to be Cassandra and the driver what we need to fool!
