@@ -28,7 +28,7 @@ The Scassandra Java Client is in Maven central. You can add it as a dependency:
 
 ~~~ groovy
 dependencies {
-testCompile 'org.scassandra:java-client:0.4.1'
+  testCompile 'org.scassandra:java-client:0.4.1'
 }
 ~~~
 
