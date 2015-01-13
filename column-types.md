@@ -10,7 +10,7 @@ At the moment you use Strings for the majority of the CQL types.
 | ------------- |---------------| -----|
 | ascii         | String | "a string column" |
 | bigint        | int or long or String or BigInteger      |   "2222222222" or new BigInteger("123") |
-| blob          | String      |    Hexidecimal String like cqlsh takes. "0x0012345435345345435435" |
+| blob          | String or ByteBuffer      |    Hexidecimal String like cqlsh takes. "0x0012345435345345435435" |
 | boolean       | Boolean              |   true    |
 | counter  | String              |    "11111111"   |
 | decimal  |      String         |   "13.6"    |
