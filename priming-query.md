@@ -30,24 +30,36 @@ The type of values in the rows map depend on the type of the column you're stubb
 
 #### Prime columns other than varchar
 
-Here is how you would prime a int column. Any columns that are varchar you can omit from the column types map.
+Note this changed a lot in version 0.6.0. Previous versions used the ColumnTypes enum.
+
+First off add some static imports:
+
+```java
+import static org.scassandra.http.client.types.ColumnMetadata.*;
+import static org.scassandra.cql.PrimitiveType.*;
+import static org.scassandra.cql.MapType.*;
+import static org.scassandra.cql.SetType.*;
+import static org.scassandra.cql.ListType.*;
+
+```
+
+This will bring into scope methods for constructing type metadata.
+
+Here is how you would prime a int column. Any columns that are varchar you do not need to supply ColumnMetadata for.
 When Cassandra returns rows to a driver it specifies the type. Most drivers will throw an exception if you
 request a column with the incorrect type.
 
 ```java
-Map<String, ? extends  Object> row = ImmutableMap.of(
+Map<String, ?> row = ImmutableMap.of(
         "first_name", "Chris",
         "last_name", "Batey",
         "age", 29);
-Map<String, ColumnTypes> columnTypes = ImmutableMap.of(
-        "age", ColumnTypes.Int
-);
-PrimingRequest singleRowPrime = PrimingRequest.queryBuilder()
+primingClient.prime(PrimingRequest.queryBuilder()
         .withQuery("select * from person")
-        .withColumnTypes(columnTypes)
+        .withColumnTypes(column("age", PrimitiveType.INT))
         .withRows(row)
-        .build();
-primingClient.primeQuery(singleRowPrime);
+        .build());
+
 ```
 
 Full details of what Java type you should use for each CQL type is [here]({{ site.baseurl }}/column-types).

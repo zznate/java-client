@@ -26,10 +26,24 @@ You build priming requests with the PrimingRequestBuilder. The builder takes the
 This primes a prepared statement with two variables, where the first is a varchar and the second is an int. You specify
 the variable types in the order they appear in the prepared statement text.
 
+Assuming you have the following static imports:
+
+```java
+import static org.scassandra.http.client.types.ColumnMetadata.*;
+import static org.scassandra.cql.PrimitiveType.*;
+import static org.scassandra.cql.MapType.*;
+import static org.scassandra.cql.SetType.*;
+import static org.scassandra.cql.ListType.*;
+
+
+```
+
+This is how to prime a prepared statement:
+
 ```java
 PrimingRequest preparedStatementPrime = PrimingRequest.preparedStatementBuilder()
     .withQuery("insert into person(first_name, age) values (?,?)")
-    .withVariableTypes(ColumnTypes.Varchar, ColumnTypes.Int)
+    .withVariableTypes(VARCHAR, INT)
     .build();
 primingClient.primePreparedStatement(preparedStatementPrime);
 ```
@@ -46,13 +60,10 @@ Map<String, ? extends  Object> row = ImmutableMap.of(
         "first_name", "Chris",
         "last_name", "Batey",
         "age", 29);
-Map<String, ColumnTypes> columnTypes = ImmutableMap.of(
-        "age", ColumnTypes.Int
-);
 PrimingRequest preparedStatementPrime = PrimingRequest.preparedStatementBuilder()
         .withQuery("select * from person where first_name = ?")
-        .withVariableTypes(ColumnTypes.Varchar, ColumnTypes.Int)
-        .withColumnTypes(columnTypes)
+        .withVariableTypes(VARCHAR)
+        .withColumnTypes(column("age", INT)
         .withRows(row)
         .build();
 primingClient.primePreparedStatement(preparedStatementPrime);
@@ -71,4 +82,3 @@ primingClient.clearAllPrimes();
 primingClient.clearPreparedPrimes();
 
 ```
-

@@ -28,7 +28,7 @@ The Scassandra Java Client is in Maven central. You can add it as a dependency:
 
 ~~~ groovy
 dependencies {
-  testCompile 'org.scassandra:java-client:0.5.0'
+  testCompile 'org.scassandra:java-client:0.6.0'
 }
 ~~~
 
@@ -39,7 +39,7 @@ dependencies {
 <dependency>
   <groupId>org.scassandra</groupId>
   <artifactId>java-client</artifactId>
-  <version>0.5.0</version>
+  <version>0.6.0</version>
   <scope>test</scope>
 </dependency>
 ~~~
@@ -50,7 +50,7 @@ If you have dependency clashes with Guava, Apache Http Client etc try the standa
 <dependency>
   <groupId>org.scassandra</groupId>
   <artifactId>java-client</artifactId>
-  <version>0.5.0</version>
+  <version>0.6.0</version>
   <classifier>standalone</classifier>
   <scope>test</scope>
 </dependency>
