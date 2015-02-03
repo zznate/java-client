@@ -43,7 +43,7 @@ primingClient.prime(preparedStatementPrime);
 
 To see what Java type you need to put in your rows map see [ColumnTypes](http://localhost:4000/java-client/column-types/) page.
 
-The ColumnTypes enum should be self explanatory e.g list(INT), list(VAR_INT).
+How to construct the correct CqlType should be intuative e.g list(INT), list(VAR_INT).
 
 If a variable in the prepared statement you need to prime it like this:
 
