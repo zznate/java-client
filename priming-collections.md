@@ -11,6 +11,7 @@ Collections can be in returned rows or prepared statement variables. For both yo
 
 
 All the examples assume the following static imports:
+
 ```java
 import static org.scassandra.http.client.types.ColumnMetadata.*;
 import static org.scassandra.cql.PrimitiveType.*;
