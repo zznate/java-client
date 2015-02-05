@@ -73,6 +73,10 @@ primingClient.primePreparedStatement(preparedStatementPrime);
 
 Works the same as with queries. See [priming queries]({{ site.baseurl }}/priming-query)
 
+#### Verifying prepared statement execution
+
+See the [Hamcrest Matchers]({{ site.baseurl }}/hamcrest-matchers) page.
+
 #### Resetting your primes
 
 No need to restart Scassandra. You can either remove all your prepared statement primes or all primes (including prepared statement primes).
